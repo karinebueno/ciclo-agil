@@ -3,14 +3,14 @@
 
 Essa é uma API para testar o aplicativo de ciclo ágil.
 
-##Requisitos
+<p style="font-size:36px"><strong>Requisitos</strong></p>
 Baixe e instale o [INTELLIJ](https://www.jetbrains.com/idea/)
 Baixe e instale a JDK mais recente [JDK](https://www.oracle.com/java/technologies/downloads/#java8)
 
-###Como rodar esse projeto
+<p style="font-size:36px"><strong>Como rodar esse projeto</strong></p>
 Clone ou baixe o rpoejto.
 
-####A API
+<p style="font-size:36px"><strong>A API</strong></p>
 "https://pa-ciclo-bff.vercel.app/auth/login"
 
 A API possui os endpoints:
