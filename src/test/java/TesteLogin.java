@@ -1,6 +1,6 @@
 import io.restassured.http.ContentType;
 import org.hamcrest.Matchers;
-import org.hamcrest.core.IsEqual;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -70,6 +70,7 @@ public class TesteLogin {
                 .body("{\"email\": \"\", \"password\": \"Mary@jane1234\"}")
                 .when().post(enderecoApi)
                 .then().statusCode(400)
+                .body("message", Matchers.hasItem("email must be an email"))
                 .body("message", Matchers.hasItem("email should not be empty"));
 
     }
