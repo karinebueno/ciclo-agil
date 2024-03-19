@@ -35,7 +35,7 @@ public class TesteLogin {
                 .body("{\"email\": \"maria@jane.com\", \"password\": \"Mary@jane1234\"}")
                 .when().post(enderecoApi)
                 .then().statusCode(401)
-                .body("message", Matchers.equalTo("Invalid username or password"));
+                .body("message", Matchers.equalTo("Invalid email or password"));
 
     }
 
@@ -59,7 +59,7 @@ public class TesteLogin {
                 .body("{\"email\": \"mary@jane.com\", \"password\": \"karine\"}")
                 .when().post(enderecoApi)
                 .then().statusCode(401)
-                .body("message", Matchers.equalTo("Invalid username or password"));
+                .body("message", Matchers.equalTo("Invalid email or password"));
     }
 
     @Test
