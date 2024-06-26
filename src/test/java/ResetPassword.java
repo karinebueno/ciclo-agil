@@ -11,22 +11,19 @@ public class ResetPassword {
 
 
     @Test
-    @DisplayName("Criar um novo usuário")
-    public void criarNovoUsuario() {
+    @DisplayName("Resetar a senha com sucesso")
+    public void SuccessfulRequest() {
         given().contentType(ContentType.JSON)
-                //.body("{\"name\": \"Karine Bueno\", \"email\": \"karinebueno.365@gmail.com\", \"password\": \"M159jCt\"}")
-                .body("{\n" + "    \"name\": \"Karine Bueno\",\n" + "    \"email\": \"karinebueno.365@gmail.com\",\n" + "    \"password\": \"M159jCt\"\n" + "}")
-                .when().post(enderecoApi + "/users")
+                .body("email:testetimebordo@gmail.com")
+                .when().post(enderecoApi + "/auth" + "/reset-password" + "/request")
                 .then().statusCode(201)
-                .body("name", Matchers.equalTo("Karine Bueno"))
-                .body("email", Matchers.equalTo("karinebueno.365@gmail.com"));
+                .body("message", Matchers.equalTo("Verification code sent to rayandson.silva321@gmail.com"));
     }
 
 
     @Test
-    @DisplayName("Fazer login com novo usuario")
-    public void LogarNewUser (){
-
+    @DisplayName("Deixar o email pra resetar a senha vazio")
+    public void RequestEmpty (){
         given().contentType(ContentType.JSON)
                 .body("{\n" + "  \"email\": \"karinebueno.365@gmail.com\",\n" + "  \"password\": \"M159jCt\"\n" + "}")
                 .when().post(enderecoApi + "/auth" + "/login")
@@ -38,8 +35,8 @@ public class ResetPassword {
     }
 
     @Test
-    @DisplayName("Resetar a senha")
-    public void resetPassword (){
+    @DisplayName("Passar um email que não está registrado para resetar a senha")
+    public void EmailNotRegistered (){
 
         given().contentType(ContentType.JSON)
                 .body("{\n" + "    \"email\": \"karinebueno.365@gmail.com\"\n" + "}")

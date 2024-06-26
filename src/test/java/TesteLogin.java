@@ -1,6 +1,5 @@
 import io.restassured.http.ContentType;
 import org.hamcrest.Matchers;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +7,7 @@ import static io.restassured.RestAssured.given;
 
 public class TesteLogin {
 
-    String enderecoApi = "https://pa-ciclo-bff.vercel.app/auth/login";
+    String enderecoApi = "https://ciclo-agil-api-test.vercel.app/auth/login";
 
 
     @Test
@@ -16,12 +15,12 @@ public class TesteLogin {
     public void Login (){
 
         given().contentType(ContentType.JSON)
-                .body("{\"email\": \"mary@jane.com\", \"password\": \"Mary@jane1234\"}")
+                .body("{\"email\": \"cexov78826@rencr.com\", \"password\": \"Pipoca123+\"}")
                 .when().post(enderecoApi)
                 .then().statusCode(201)
-                .body("user.firstName", Matchers.equalTo("Mary"))
-                .body("user.lastName", Matchers.equalTo("Jane"))
-                .body("user.email", Matchers.equalTo("mary@jane.com"))
+                .body("user.name", Matchers.equalTo("Novo Usuario Teste"))
+                //.body("user.lastName", Matchers.equalTo("Jane"))
+                .body("user.email", Matchers.equalTo("cexov78826@rencr.com"))
                 .body("token.accessToken", Matchers.notNullValue())
                 .body("token.refreshToken", Matchers.notNullValue());
 
