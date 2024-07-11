@@ -1,4 +1,8 @@
 import java.security.SecureRandom;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class TestUtils {
@@ -65,12 +69,34 @@ public class TestUtils {
     }
 
     public static String generateBirthday() {
-        int startYear = 1950;
-        int endYear = 2005;
+        int startYear = 1966; //considerando que a mulher pode mestruar até 58 anos
+        int endYear = 2010; //deve ter no mínimo 14 anos
         int year = startYear + RANDOM.nextInt(endYear - startYear + 1);
         int month = RANDOM.nextInt(12) + 1;
         int day = RANDOM.nextInt(28) + 1;
         return String.format("%d-%02d-%02d", year, month, day);
+    }
+    
+    public static String generateFutureDate() {
+        LocalDate futureDate = LocalDate.now().plusMonths(1); // Adiciona um mês à data atual
+        return futureDate.format(DateTimeFormatter.ISO_DATE);
+    }
+
+    public static List<String> generateInvalidDates() {
+        List<String> invalidDates = new ArrayList<>();
+        invalidDates.add("2023-02-30");
+        invalidDates.add("2023-04-31");
+        invalidDates.add("2023-06-31");
+        invalidDates.add("2023-09-31");
+        invalidDates.add("2023-11-31");
+        return invalidDates;
+    }
+
+    // Método para selecionar uma data inexistente aleatoriamente
+    public static String generateRandomInvalidDate() {
+        List<String> invalidDates = generateInvalidDates();
+        Random random = new Random();
+        return invalidDates.get(random.nextInt(invalidDates.size()));
     }
 }
 
