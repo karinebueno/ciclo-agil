@@ -1,14 +1,14 @@
-#API Ciclo Ágil - Testes Automatizados
+# API Ciclo Ágil - Testes Automatizados
 
 Essa é uma API para testar o aplicativo de ciclo ágil.
 
-##Requisitos: 
+## Requisitos: 
 
 Baixe e instale o [INTELLIJ](https://www.jetbrains.com/idea/) 
 
 Baixe e instale a JDK mais recente [JDK](https://www.oracle.com/java/technologies/downloads/#java8)
 
-###Ferramentas e Tecnologias Utilizadas
+### Ferramentas e Tecnologias Utilizadas
 
 Forma de executar os testes: Junit 5
 
@@ -20,11 +20,11 @@ Simplificar requisições: RestAssured
 
 Relatórios e dependências: Gradle
 
-####Como rodar esse projeto:
+#### Como rodar esse projeto:
 
 git clone https://github.com/karinebueno/ciclo-agil.git.
 
-#####Dependências
+##### Dependências
 
 testImplementation 'io.rest-assured:rest-assured:5.4.0'
 
@@ -35,7 +35,7 @@ testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.11.3'
 
 
-######A API 
+###### A API 
 
 "https://pa-ciclo-bff.vercel.app/auth/login"
 
